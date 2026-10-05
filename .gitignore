@@ -1,0 +1,29 @@
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+*.auto.tfvars
+terraform.tfvars
+.terraform.tfstate.lock.info
+
+# Ansible
+*.retry
+.vault_pass*
+ansible/inventories/aws/hosts.yml
+ansible/collections/ansible_collections/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Lab runtime
+lab/.env
+lab/.artifacts/
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
