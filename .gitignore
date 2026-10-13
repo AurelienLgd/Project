@@ -4,8 +4,8 @@
 *.tfstate.*
 *.tfplan
 crash.log
-*.auto.tfvars
-terraform.tfvars
+*.tfvars
+!*.tfvars.example
 .terraform.tfstate.lock.info
 
 # Ansible
@@ -20,8 +20,31 @@ __pycache__/
 *.pyc
 
 # Lab runtime
-lab/.env
 lab/.artifacts/
+lab/compose.override.yaml
+
+# Secrets: never commit them (see SECURITY.md)
+.env
+.env.*
+!.env.example
+*.env
+!*.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.kdbx
+id_rsa*
+id_ecdsa*
+id_ed25519*
+*.kubeconfig
+.vault_pass*
+vault_pass*
+.vault-password*
+secrets/
+*.secret
+credentials*.json
 
 # Editors / OS
 .idea/

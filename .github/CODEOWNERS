@@ -1,0 +1,7 @@
+# Every change needs the owner's review when branch protection requires
+# code owner approval. Sensitive paths are listed explicitly for clarity.
+*                     @AurelienLgd
+/.github/             @AurelienLgd
+/.gitleaks.toml       @AurelienLgd
+/.pre-commit-config.yaml @AurelienLgd
+/SECURITY.md          @AurelienLgd

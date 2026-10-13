@@ -1,0 +1,9 @@
+# Keep third-party code up to date (security fixes included).
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: "ci"
