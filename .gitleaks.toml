@@ -1,0 +1,29 @@
+# gitleaks configuration: default ruleset plus project-specific rules.
+# Used by the pre-commit hook and by .github/workflows/security.yml.
+title = "vigie gitleaks config"
+
+[extend]
+useDefault = true
+
+# Catch plain "password = something" assignments in env files, compose files
+# and Ansible vars, which the generic default rules can miss.
+[[rules]]
+id = "plaintext-password-assignment"
+description = "Plaintext password assigned in configuration"
+regex = '''(?i)(?:password|passwd|pwd|secret|token|api_key)[a-z0-9_]*\s*[:=]\s*["']?([^\s"'#{}$<>]{8,})'''
+secretGroup = 1
+entropy = 3.0
+keywords = ["password", "passwd", "pwd", "secret", "token", "api_key"]
+
+[allowlist]
+description = "Templates and placeholders that are expected to look like secrets"
+paths = [
+  '''(^|/)\.env\.example$''',
+  '''\.tfvars\.example$''',
+]
+regexes = [
+  '''change-me''',
+  '''CHANGE_ME''',
+  '''\{\{\s*[a-z0-9_]+\s*\}\}''',
+  '''vault_[a-z0-9_]+''',
+]
